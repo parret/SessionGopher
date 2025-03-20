@@ -18,7 +18,7 @@
     Christopher Truncer - helping with WMI
 
   .PARAMETER o
-  Generates CSV output.
+  Generates CSV output in specified folder
     
   .PARAMETER Thorough
   Searches entire filesystem for certain file extensions.
@@ -40,7 +40,7 @@
 #>
 function Invoke-SessionGopher {
   param (
-      [switch]$o, # Generate CSV output
+      [string]$o, # Generate CSV output into specified folder
       [switch]$Thorough, # Searches entire filesystem for certain file extensions
       [string]$u, # Domain\username (e.g. superduper.com\a-jerry)
       [string]$p, # Password of domain account
@@ -59,7 +59,7 @@ function Invoke-SessionGopher {
   '
 
   if ($o) {
-    $OutputDirectory = "SessionGopher (" + (Get-Date -Format "HH.mm.ss") + ")"
+    $OutputDirectory = $o
     New-Item -ItemType Directory $OutputDirectory | Out-Null
     New-Item ($OutputDirectory + "\PuTTY.csv") -Type File | Out-Null
     New-Item ($OutputDirectory + "\SuperPuTTY.csv") -Type File | Out-Null
