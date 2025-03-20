@@ -332,6 +332,7 @@ function Invoke-SessionGopher {
       $ArrayOfRDPSessions = New-Object System.Collections.ArrayList
       $ArrayOfRDPFiles = New-Object System.Collections.ArrayList
       $ArrayOfFileZillaSessions = New-Object System.Collections.ArrayList
+      $ArrayOfSDTIDFiles = New-Object System.Collections.ArrayList
 
       $objUser = (GetMappedSID)
       $Source = (Hostname) + "\" + (Split-Path $objUser.Value -Leaf)
